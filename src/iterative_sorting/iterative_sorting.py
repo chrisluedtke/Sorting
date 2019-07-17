@@ -1,36 +1,29 @@
-def selection_sort( arr ):
-    # loop through n-1 elements
-    max_idx = len(arr)
-    for current_idx in range(max_idx - 1):
-        min_val_idx = current_idx
+def selection_sort( arr ):  # O(n ^ 2)
+    max_i = len(arr)
+    for current_i in range(max_i - 1):
+        min_val_i = current_i
 
-        # find next smallest element
-        for idx in range(current_idx, max_idx):
-            if arr[idx] < arr[min_val_idx]:
-                 min_val_idx = idx
+        for i in range(current_i, max_i):  # find next smallest element
+            if arr[i] < arr[min_val_i]:
+                 min_val_i = i
 
-        # swap
-        arr[current_idx], arr[min_val_idx] = arr[min_val_idx], arr[current_idx]
+        arr[current_i], arr[min_val_i] = arr[min_val_i], arr[current_i]  # swap
 
     return arr
 
 
-def bubble_sort(arr):
+def bubble_sort(arr):  # O(n ^ 2)
     swap_made = True
     while swap_made:
         swap_made = False
-        for idx in range(len(arr) - 1):
-            curr_val = arr[idx]
-            next_val = arr[idx+1]
-            if next_val < curr_val:
-                arr[idx]   = next_val
-                arr[idx+1] = curr_val
+        for i in range(len(arr) - 1):
+            if arr[i+1] < arr[i]:  # if next item less than current
+                arr[i], arr[i+1] = arr[i+1], arr[i]  # swap
                 swap_made = True
 
     return arr
 
 
-# STRETCH: implement the Count Sort function below
 def count_sort( arr, maximum=-1 ):
 
     return arr
